@@ -17,8 +17,6 @@ import java.util.stream.IntStream;
  */
 public class DataRandomizer
 {
-    private static Faker faker = new Faker();
-
     public static Point randomPoint()
     {
         double latitude = (Math.random() * 180.0) - 90.0;

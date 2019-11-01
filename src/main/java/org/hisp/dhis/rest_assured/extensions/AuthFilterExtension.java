@@ -11,7 +11,8 @@ import io.restassured.specification.FilterableResponseSpecification;
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
  */
 public class AuthFilterExtension
-    implements io.restassured.spi.AuthFilter
+    implements
+    io.restassured.spi.AuthFilter
 {
     private String lastLoggedInUser = "";
 
@@ -40,8 +41,7 @@ public class AuthFilterExtension
             lastLoggedInUser = ((PreemptiveBasicAuthScheme) requestSpec.getAuthenticationScheme()).getUserName();
         }
 
-        final Response response = ctx.next( requestSpec, responseSpec );
-        return response;
+        return ctx.next( requestSpec, responseSpec );
     }
 
     private boolean hasSessionCookie( FilterableRequestSpecification requestSpec )

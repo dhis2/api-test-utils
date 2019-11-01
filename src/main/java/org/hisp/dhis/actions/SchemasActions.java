@@ -24,7 +24,7 @@ public class SchemasActions
         List<SchemaProperty> list = get( resource ).extractList( "properties", SchemaProperty.class );
 
         return list.stream()
-            .filter( (schemaProperty -> schemaProperty.isRequired()) )
+            .filter( ( SchemaProperty::isRequired ) )
             .collect( Collectors.toList() );
     }
 

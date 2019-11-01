@@ -28,17 +28,18 @@
 
 package org.hisp.dhis.actions;
 
+import java.io.File;
+
+import org.hamcrest.Matchers;
+import org.hisp.dhis.request.QueryParamsBuilder;
+import org.hisp.dhis.response.dto.ApiResponse;
+
 import io.restassured.RestAssured;
 import io.restassured.config.ObjectMapperConfig;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.hamcrest.Matchers;
-import org.hisp.dhis.request.QueryParamsBuilder;
-import org.hisp.dhis.response.dto.ApiResponse;
-
-import java.io.File;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
@@ -46,7 +47,7 @@ import java.io.File;
  */
 public class RestApiActions
 {
-    protected String endpoint;
+    private String endpoint;
 
     private String baseUri;
 
@@ -108,19 +109,13 @@ public class RestApiActions
     {
         String path = queryParams == null ? "" : queryParams.build();
 
-        ApiResponse response = new ApiResponse( this.given()
-            .body( object )
-            .contentType( contentType )
-            .when()
-            .post( resource + path ) );
-
-        return response;
+        return new ApiResponse( this.given().body( object ).contentType( contentType ).when().post( resource + path ) );
     }
 
     /**
      * Sends post request to specified endpoint and verifies that request was successful
      *
-     * @param object Body of reqeuest
+     * @param object Body of request
      * @return ID of generated entity.
      */
     public String create( Object object )

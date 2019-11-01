@@ -10,7 +10,7 @@ import org.apache.commons.lang3.tuple.MutablePair;
  */
 public class QueryParamsBuilder
 {
-    List<MutablePair<String, String>> queryParams;
+    private List<MutablePair<String, String>> queryParams;
 
     public QueryParamsBuilder()
     {
@@ -26,9 +26,9 @@ public class QueryParamsBuilder
      */
     public QueryParamsBuilder add( String param )
     {
-        String[] splited = param.split( "=" );
+        String[] split= param.split( "=" );
 
-        return this.add( splited[0], splited[1] );
+        return this.add( split[0], split[1] );
     }
 
     /**
@@ -38,10 +38,11 @@ public class QueryParamsBuilder
      * @return
      */
 
-    public QueryParamsBuilder add( String key, String value) {
-        MutablePair pair = getByKey( key );
+    public QueryParamsBuilder add( String key, String value )
+    {
+        MutablePair<String, String> pair = getByKey( key );
 
-        if ( pair != null)
+        if ( pair != null )
         {
             pair.setRight( value );
             return this;
@@ -62,7 +63,7 @@ public class QueryParamsBuilder
         return this;
     }
 
-    private MutablePair getByKey( String key )
+    private MutablePair<String, String> getByKey( String key )
     {
         return queryParams.stream()
             .filter( p -> p.getLeft().equals( key ) )

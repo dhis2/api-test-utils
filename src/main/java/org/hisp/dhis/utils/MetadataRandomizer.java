@@ -1,9 +1,10 @@
 package org.hisp.dhis.utils;
 
-import com.github.javafaker.Faker;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang3.StringUtils;
 import org.hisp.dhis.actions.IdGenerator;
 import org.hisp.dhis.actions.RestApiActions;
@@ -12,10 +13,10 @@ import org.hisp.dhis.response.dto.schemas.PropertyType;
 import org.hisp.dhis.response.dto.schemas.Schema;
 import org.hisp.dhis.response.dto.schemas.SchemaProperty;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import com.github.javafaker.Faker;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
