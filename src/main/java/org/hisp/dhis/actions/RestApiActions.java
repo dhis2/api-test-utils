@@ -43,7 +43,7 @@ import io.restassured.specification.RequestSpecification;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
- * Convenience class for Rest-assured requests
+ * Convenience class for Rest-Assured requests
  */
 public class RestApiActions
 {
@@ -59,6 +59,7 @@ public class RestApiActions
 
     /**
      * Overrides baseUri provided in RestAssured configuration.
+     *
      * @param baseUri
      * @return
      */

@@ -4,8 +4,10 @@ import org.hisp.dhis.request.QueryParamsBuilder;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+ * Convenience class to generate unique ID's using /system/id endpoint
  */
-public class IdGenerator extends RestApiActions
+public class IdGenerator
+    extends RestApiActions
 {
     public IdGenerator()
     {

@@ -24,6 +24,7 @@ import com.google.gson.JsonPrimitive;
 public class MetadataRandomizer
 {
     private static Faker faker = new Faker();
+
     /**
      * Generates random data for simple type schema properties;
      *

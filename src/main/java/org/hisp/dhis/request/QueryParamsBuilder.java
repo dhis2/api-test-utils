@@ -1,9 +1,9 @@
 package org.hisp.dhis.request;
 
+import org.apache.commons.lang3.tuple.MutablePair;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.lang3.tuple.MutablePair;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
@@ -33,6 +33,7 @@ public class QueryParamsBuilder
 
     /**
      * Adds or updates the query param.
+     *
      * @param key
      * @param value
      * @return
@@ -53,6 +54,11 @@ public class QueryParamsBuilder
         return this;
     }
 
+    /**
+     * Adds or updates the query params.
+     * @param params
+     * @return
+     */
     public QueryParamsBuilder addAll( String... params )
     {
         for ( String param : params )
@@ -71,6 +77,11 @@ public class QueryParamsBuilder
             .orElse( null );
     }
 
+    /**
+     * Returns the query params built as part of URL query.
+     * Example: ?key=value&anotherKey=anotherValue
+     * @return
+     */
     public String build()
     {
         if ( queryParams.size() == 0 )
