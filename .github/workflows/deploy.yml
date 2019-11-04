@@ -1,7 +1,7 @@
 name: Deploy package
 
 on:
-  relese:
+  release:
     types: [created]
 
 jobs:
