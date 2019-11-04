@@ -23,3 +23,7 @@ Response package contains utils and models that helps with response validation.
 ### rest assured
 
 Response package contains Rest-Assured framework extensions. 
+
+## Deployment
+To deploy the new package to GH package registry, create a release in GitHub. Then deployment will be triggered automatically.
+Release should have semantic name: i.e 1.0.1. 
