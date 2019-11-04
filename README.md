@@ -1,8 +1,6 @@
 # api-test-utils
 Shared utility library for DHIS2 API, performance tests. 
 
-https://github.com/dhis2/api-test-utils/workflows/deploy.yml/badge.svg
-
 ## Packages
 ### actions 
 Actions package contains utils needed for interacting with DHIS2 API. 
