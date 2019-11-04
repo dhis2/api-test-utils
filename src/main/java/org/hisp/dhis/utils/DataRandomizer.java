@@ -1,6 +1,5 @@
 package org.hisp.dhis.utils;
 
-import com.github.javafaker.Faker;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Point;
@@ -17,8 +16,6 @@ import java.util.stream.IntStream;
  */
 public class DataRandomizer
 {
-    private static Faker faker = new Faker();
-
     public static Point randomPoint()
     {
         double latitude = (Math.random() * 180.0) - 90.0;
@@ -28,11 +25,19 @@ public class DataRandomizer
         return geometryFactory.createPoint( new Coordinate( longitude, latitude ) );
     }
 
+    /**
+     * Returns random string containing 6 alphabetical characters.
+     * @return
+     */
     public static String randomString()
     {
         return RandomStringUtils.randomAlphabetic( 6 );
     }
 
+    /**
+     * Returns random entity name containing static string joined with 6 random alphabetical characters
+     * @return
+     */
     public static String randomEntityName()
     {
         return "AutoTest entity " + randomString();
