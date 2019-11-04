@@ -110,7 +110,11 @@ public class RestApiActions
     {
         String path = queryParams == null ? "" : queryParams.build();
 
-        return new ApiResponse( this.given().body( object ).contentType( contentType ).when().post( resource + path ) );
+        return new ApiResponse( this.given()
+            .body( object )
+            .contentType( contentType )
+            .when()
+            .post( resource + path ) );
     }
 
     /**
