@@ -11,31 +11,33 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class QueryParamsBuilderTest
 {
     @Test
-    public void shouldAddKeyAndValue() {
+    public void shouldAddKeyAndValue()
+    {
         String queryParams = new QueryParamsBuilder().add( "key", "value" )
             .add( "anotherKey", "anotherValue" )
             .build();
 
-        assertThat(queryParams, equalTo("?key=value&anotherKey=anotherValue"));
-
+        assertThat( queryParams, equalTo( "?key=value&anotherKey=anotherValue" ) );
 
         queryParams = new QueryParamsBuilder().add( "key=value" )
             .add( "anotherKey=anotherValue" )
             .build();
 
-        assertThat(queryParams, equalTo("?key=value&anotherKey=anotherValue"));
+        assertThat( queryParams, equalTo( "?key=value&anotherKey=anotherValue" ) );
     }
 
     @Test
-    public void shouldAddAll() {
+    public void shouldAddAll()
+    {
         String queryParams = new QueryParamsBuilder().addAll( "key=value", "anotherKey=anotherValue" )
             .build();
 
-        assertThat(queryParams, equalTo("?key=value&anotherKey=anotherValue"));
+        assertThat( queryParams, equalTo( "?key=value&anotherKey=anotherValue" ) );
     }
 
     @Test
-    public void shouldReplaceParam() {
+    public void shouldReplaceParam()
+    {
         String queryParams = new QueryParamsBuilder().add( "key", "value" )
             .add( "key", "anotherValue" )
             .build();

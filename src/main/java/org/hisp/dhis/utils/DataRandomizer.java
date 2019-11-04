@@ -38,7 +38,7 @@ public class DataRandomizer
         return "AutoTest entity " + randomString();
     }
 
-    public static List<Integer> randomSequence(int collectionSize, int max )
+    public static List<Integer> randomSequence( int collectionSize, int max )
     {
         List<Integer> indexes = new ArrayList<>();
         if ( collectionSize == 1 )

@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+ * Actions class meant to simplify interactions with /schemas endpoint
  */
 public class SchemasActions
     extends RestApiActions
