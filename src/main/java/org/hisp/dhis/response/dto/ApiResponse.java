@@ -14,6 +14,11 @@ import java.util.List;
  */
 public class ApiResponse
 {
+    public Response getRaw()
+    {
+        return raw;
+    }
+
     private Response raw;
 
     public ApiResponse( Response response )
@@ -91,6 +96,10 @@ public class ApiResponse
     public int statusCode()
     {
         return raw.statusCode();
+    }
+
+    public long getTime() {
+        return raw.time();
     }
 
     public ValidatableResponse validate()
