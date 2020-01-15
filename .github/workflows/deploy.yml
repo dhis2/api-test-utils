@@ -1,10 +1,9 @@
 name: Deploy package
 
-#on:
-#  release:
-#    types: [created]
+on:
+  release:
+    types: [created]
 
-on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,7 +16,7 @@ jobs:
 
       - name: Update version
         run: |
-          mvn versions:set -DnewVersion=1.0.1
+          mvn versions:set -DnewVersion=${{ github.event.release['name'] }}
 
       - name: Commit changes
         run: |
@@ -30,11 +29,10 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: 'test-branch'
-
-#      - name: Deploy
-#        env:
-#          GITHUB_USERNAME: x-access-token
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        run: |
-#          mvn -s ./settings.xml deploy -U
+          force: true
+      - name: Deploy
+        env:
+          GITHUB_USERNAME: x-access-token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mvn -s ./settings.xml deploy -U
