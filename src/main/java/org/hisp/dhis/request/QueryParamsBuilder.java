@@ -24,11 +24,11 @@ public class QueryParamsBuilder
      * @param param
      * @return
      */
-    public QueryParamsBuilder add( String param )
+    public QueryParamsBuilder addOrUpdate( String param )
     {
         String[] split= param.split( "=" );
 
-        return this.add( split[0], split[1] );
+        return this.addOrUpdate( split[0], split[1] );
     }
 
     /**
@@ -39,7 +39,7 @@ public class QueryParamsBuilder
      * @return
      */
 
-    public QueryParamsBuilder add( String key, String value )
+    public QueryParamsBuilder addOrUpdate( String key, String value )
     {
         MutablePair<String, String> pair = getByKey( key );
 
@@ -55,7 +55,51 @@ public class QueryParamsBuilder
     }
 
     /**
+     * Adds query param even when param with the same key exists.
+     * Format: key=value
+     *
+     * @param param
+     * @return
+     */
+    public QueryParamsBuilder add( String param )
+    {
+        String[] split= param.split( "=" );
+
+        return this.add( split[0], split[1] );
+    }
+
+    /**
+     * Adds the query param even when param with the same key exists.
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+
+    public QueryParamsBuilder add( String key, String value )
+    {
+        queryParams.add( MutablePair.of( key, value ) );
+
+        return this;
+    }
+
+    /**
      * Adds or updates the query params.
+     * @param params
+     * @return
+     */
+    public QueryParamsBuilder addOrUpdateAll( String... params )
+    {
+        for ( String param : params )
+        {
+            this.addOrUpdate( param );
+        }
+
+        return this;
+    }
+
+    /**
+     * Adds the query params.
      * @param params
      * @return
      */
