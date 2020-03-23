@@ -205,6 +205,18 @@ public class RestApiActions
         return new ApiResponse( response );
     }
 
+    public ApiResponse update( String resourceId, Object object, String contentType )
+    {
+        Response response =
+            this.given()
+                .contentType( contentType )
+                .body( object, ObjectMapperType.GSON )
+                .when()
+                .put( resourceId );
+
+        return new ApiResponse( response );
+    }
+
     public ApiResponse postFile( File file )
     {
         return this.postFile( file, null );
