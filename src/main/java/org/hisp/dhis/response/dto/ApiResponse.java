@@ -19,7 +19,7 @@ public class ApiResponse
         return raw;
     }
 
-    private Response raw;
+    protected Response raw;
 
     public ApiResponse( Response response )
     {
