@@ -28,18 +28,15 @@
 
 package org.hisp.dhis.actions;
 
-import java.io.File;
-
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.mapper.ObjectMapperType;
+import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
 import org.hisp.dhis.request.QueryParamsBuilder;
 import org.hisp.dhis.response.dto.ApiResponse;
 
-import io.restassured.RestAssured;
-import io.restassured.config.ObjectMapperConfig;
-import io.restassured.http.ContentType;
-import io.restassured.mapper.ObjectMapperType;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
+import java.io.File;
 
 /**
  * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
@@ -108,13 +105,11 @@ public class RestApiActions
     {
         String path = queryParams == null ? "" : queryParams.build();
 
-        Response response = this.given()
+        return new ApiResponse( this.given()
             .body( object )
             .contentType( contentType )
             .when()
-            .post( resource + path );
-
-        return new ApiResponse( response );
+            .post( resource + path ) );
     }
 
     /**
@@ -165,12 +160,10 @@ public class RestApiActions
     {
         String path = queryParamsBuilder == null ? "" : queryParamsBuilder.build();
 
-        Response response = this.given()
+        return new ApiResponse( this.given()
             .contentType( ContentType.TEXT )
             .when()
-            .get( resourceId + path );
-
-        return new ApiResponse( response );
+            .get( resourceId + path ) );
     }
 
     /**
@@ -181,11 +174,9 @@ public class RestApiActions
      */
     public ApiResponse delete( String path )
     {
-        Response response = this.given()
+        return new ApiResponse( this.given()
             .when()
-            .delete( path );
-
-        return new ApiResponse( response );
+            .delete( path ) );
     }
 
     /**
@@ -197,24 +188,18 @@ public class RestApiActions
      */
     public ApiResponse update( String resourceId, Object object )
     {
-        Response response =
-            this.given().body( object, ObjectMapperType.GSON )
-                .when()
-                .put( resourceId );
-
-        return new ApiResponse( response );
+        return new ApiResponse( this.given().body( object, ObjectMapperType.GSON )
+            .when()
+            .put( resourceId ) );
     }
 
     public ApiResponse update( String resourceId, Object object, String contentType )
     {
-        Response response =
-            this.given()
-                .contentType( contentType )
-                .body( object, ObjectMapperType.GSON )
-                .when()
-                .put( resourceId );
-
-        return new ApiResponse( response );
+        return new ApiResponse( this.given()
+            .contentType( contentType )
+            .body( object, ObjectMapperType.GSON )
+            .when()
+            .put( resourceId ) );
     }
 
     public ApiResponse postFile( File file )
@@ -226,13 +211,10 @@ public class RestApiActions
     {
         String url = queryParamsBuilder == null ? "" : queryParamsBuilder.build();
 
-        ApiResponse response = new ApiResponse( this.given()
+        return new ApiResponse( this.given()
             .body( file )
             .when()
             .post( url ) );
-
-        return response;
-
     }
 }
 
