@@ -3,11 +3,7 @@ package org.hisp.dhis.utils;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -148,6 +144,16 @@ public class DataRandomizer
     {
         Random rand = new Random();
         return list.get( rand.nextInt( list.size() ) );
+    }
+    
+    public static <T> List<T> randomElementsFromList( List<T> list, int elements )
+    {
+        Collections.shuffle( list );
+        if ( elements > list.size() )
+        {
+            elements = list.size();
+        }
+        return list.subList( 0, elements );
     }
 
     /**
