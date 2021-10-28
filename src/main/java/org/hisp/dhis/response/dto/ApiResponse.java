@@ -10,7 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.List;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 public class ApiResponse
 {
@@ -29,7 +29,7 @@ public class ApiResponse
     /**
      * Extracts uid when only one object was created.
      *
-     * @return
+     * @return uid from the response
      */
     public String extractUid()
     {
@@ -54,7 +54,7 @@ public class ApiResponse
      * Extracts uids from import summaries.
      * Use when more than one object was created.
      *
-     * @return
+     * @return List of uids
      */
     public List<String> extractUids()
     {

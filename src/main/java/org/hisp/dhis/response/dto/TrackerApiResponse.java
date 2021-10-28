@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.number.OrderingComparison.greaterThanOrEqualTo;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 public class TrackerApiResponse
     extends ApiResponse

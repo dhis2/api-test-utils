@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 @JsonIgnoreProperties( ignoreUnknown = true )
 public class SchemaProperty

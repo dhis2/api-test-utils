@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  * Actions class meant to simplify interactions with /schemas endpoint
  */
 public class SchemasActions

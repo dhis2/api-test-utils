@@ -32,7 +32,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 public class JsonObjectBuilder
 {

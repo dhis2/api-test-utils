@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 public class QueryParamsBuilder
 {
@@ -21,8 +21,8 @@ public class QueryParamsBuilder
      * Adds or updates the query param.
      * Format: key=value
      *
-     * @param param
-     * @return
+     * @param param query param key=value
+     * @return QueryParamsBuilder
      */
     public QueryParamsBuilder addOrUpdate( String param )
     {
@@ -34,9 +34,9 @@ public class QueryParamsBuilder
     /**
      * Adds or updates the query param.
      *
-     * @param key
-     * @param value
-     * @return
+     * @param key query param key
+     * @param value query param value
+     * @return QueryParamsBuilder
      */
 
     public QueryParamsBuilder addOrUpdate( String key, String value )
@@ -58,8 +58,8 @@ public class QueryParamsBuilder
      * Adds query param even when param with the same key exists.
      * Format: key=value
      *
-     * @param param
-     * @return
+     * @param param query param key=value
+     * @return QueryParamsBuilder
      */
     public QueryParamsBuilder add( String param )
     {
@@ -71,9 +71,9 @@ public class QueryParamsBuilder
     /**
      * Adds the query param even when param with the same key exists.
      *
-     * @param key
-     * @param value
-     * @return
+     * @param key query param key
+     * @param value query param value
+     * @return QueryParamsBuilder
      */
 
     public QueryParamsBuilder add( String key, String value )
@@ -85,8 +85,8 @@ public class QueryParamsBuilder
 
     /**
      * Adds or updates the query params.
-     * @param params
-     * @return
+     * @param params spread of query params
+     * @return QueryParamsBuilder
      */
     public QueryParamsBuilder addOrUpdateAll( String... params )
     {
@@ -100,8 +100,8 @@ public class QueryParamsBuilder
 
     /**
      * Adds the query params.
-     * @param params
-     * @return
+     * @param params spread of String query params
+     * @return QueryParamsBuilder
      */
     public QueryParamsBuilder addAll( String... params )
     {
@@ -123,8 +123,7 @@ public class QueryParamsBuilder
 
     /**
      * Returns the query params built as part of URL query.
-     * Example: ?key=value&anotherKey=anotherValue
-     * @return
+     * @return built query parameters. Starts with ?.
      */
     public String build()
     {
