@@ -19,7 +19,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 public class MetadataRandomizer
 {
@@ -28,8 +28,8 @@ public class MetadataRandomizer
     /**
      * Generates random data for simple type schema properties;
      *
-     * @param property
-     * @return
+     * @param property Name of schema property
+     * @return JsonElement
      */
     public static JsonElement generateRandomValueMatchingSchema( SchemaProperty property )
     {

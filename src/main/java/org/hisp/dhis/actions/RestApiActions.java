@@ -39,7 +39,7 @@ import org.hisp.dhis.response.dto.ApiResponse;
 import java.io.File;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  * Convenience class for Rest-Assured requests
  */
 public class RestApiActions
@@ -57,8 +57,8 @@ public class RestApiActions
     /**
      * Overrides baseUri provided in RestAssured configuration.
      *
-     * @param baseUri
-     * @return
+     * @param baseUri uri to DHIS2 instance
+     * @return RestApiActions
      */
     public RestApiActions setBaseUri( String baseUri )
     {
@@ -79,7 +79,7 @@ public class RestApiActions
      * If post request successful, saves created entity in TestRunStorage
      *
      * @param object Body of request
-     * @return Response
+     * @return ApiResponse
      */
     public ApiResponse post( Object object )
     {
@@ -154,7 +154,7 @@ public class RestApiActions
      *
      * @param resourceId         Id of resource
      * @param queryParamsBuilder Query params to append to url
-     * @return
+     * @return ApiResponse
      */
     public ApiResponse get( String resourceId, QueryParamsBuilder queryParamsBuilder )
     {
@@ -170,7 +170,7 @@ public class RestApiActions
      * Sends DELETE request to specified resource.
      *
      * @param path Id of resource
-     * @return
+     * @return ApiResponse
      */
     public ApiResponse delete( String path )
     {
@@ -184,7 +184,7 @@ public class RestApiActions
      *
      * @param resourceId Id of resource
      * @param object     Body of request
-     * @return
+     * @return ApiResponse
      */
     public ApiResponse update( String resourceId, Object object )
     {

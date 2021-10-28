@@ -18,15 +18,15 @@ import com.vividsolutions.jts.geom.Point;
 /**
  * Utility methods for random data generation
  *
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
- * @author Luciano Fiandesio <luciano@dhis2.org>
+ * @author Gintare Vilkelyte
+ * @author Luciano Fiandesio
  */
 public class DataRandomizer
 {
     /**
-     * Generates a {@see Point} based on randomized coordinates
+     * Generates a { Point } based on randomized coordinates
      * 
-     * @return a {@see Point}
+     * @return a { Point}
      */
     public static Point randomPoint()
     {
@@ -62,7 +62,7 @@ public class DataRandomizer
      * Returns random entity name containing static string joined with 6 random
      * alphabetical characters
      * 
-     * @return
+     * @return a random name
      */
     public static String randomEntityName()
     {
@@ -117,6 +117,7 @@ public class DataRandomizer
      * @param decimals maximum number of places
      * @param min minimum value
      * @param max maximum value
+     * @return a double
      */
     public static double randomDoubleInRange( int min, int max, int decimals )
     {
@@ -137,7 +138,7 @@ public class DataRandomizer
      * Extracts a random element from a list
      * 
      * @param list a List
-     *
+     * @param <T> type
      * @return a random element from the list
      */
     public static <T> T randomElementFromList( List<T> list )
@@ -179,8 +180,8 @@ public class DataRandomizer
     /**
      * Generates a random date in the future. The date is maximum 5 years from now
      * 
-     * @param formatter a {@see DateTimeFormatter} for formatting the date
-     * @return a Date formatted according to the specified {@see DateTimeFormatter}
+     * @param formatter a {DateTimeFormatter} for formatting the date
+     * @return a Date formatted according to the specified {DateTimeFormatter}
      */
     public static String randomFutureDate( DateTimeFormatter formatter )
     {
@@ -202,8 +203,8 @@ public class DataRandomizer
      * Generates a random date in the past. The date is maximum 5 years in the past
      * from now
      *
-     * @param formatter a {@see DateTimeFormatter} for formatting the date
-     * @return a Date formatted according to the specified {@see DateTimeFormatter}
+     * @param formatter a {DateTimeFormatter} for formatting the date
+     * @return a Date formatted according to the specified {DateTimeFormatter}
      */
     public static String randomPastDate( DateTimeFormatter formatter )
     {

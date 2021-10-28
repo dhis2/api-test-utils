@@ -34,5 +34,8 @@ jobs:
         env:
           GITHUB_USERNAME: x-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEXUS_USERNAME: ${{ secrets.nexus_username }}
+          NEXUS_PASSWORD: ${{ secrets.nexus_password }}
         run: |
-          mvn -s ./settings.xml deploy -U
+          mvn -s ./settings.xml deploy -U -Pgithub
+          mvn -s ./settings.xml deploy -Pnexus

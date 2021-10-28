@@ -3,7 +3,7 @@ package org.hisp.dhis.actions;
 import org.hisp.dhis.request.QueryParamsBuilder;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  * Convenience class to generate unique ID's using /system/id endpoint
  */
 public class IdGenerator
@@ -16,7 +16,6 @@ public class IdGenerator
 
     public String generateUniqueId()
     {
-
         return get( "id.json", new QueryParamsBuilder().add( "limit=1" ) )
             .validate()
             .statusCode( 200 )

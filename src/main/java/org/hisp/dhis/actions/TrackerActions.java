@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import static org.hamcrest.Matchers.notNullValue;
 
 /**
- * @author Gintare Vilkelyte <vilkelyte.gintare@gmail.com>
+* @author Gintare Vilkelyte
  */
 public class TrackerActions
     extends RestApiActions
