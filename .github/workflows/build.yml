@@ -13,12 +13,4 @@ jobs:
         java-version: 11
     - name: Test
       run: mvn test
-    - name: Deploy
-      uses: samuelmeuli/action-maven-publish@v1
-      with:
-        nexus_username: ${{ secrets.NEXUS_USERNAME }}
-        nexus_password: ${{ secrets.NEXUS_PASSWORD }}
-        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-        maven_args: "-s settings.xml"
-        maven_profiles: "nexus"
+
