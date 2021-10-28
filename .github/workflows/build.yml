@@ -29,5 +29,4 @@ jobs:
           NEXUS_USERNAME: ${{ secrets.nexus_username }}
           NEXUS_PASSWORD: ${{ secrets.nexus_password }}
         run: |
-          mvn -s ./settings.xml deploy -U -Pgithub
           mvn -s ./settings.xml deploy -Pnexus
