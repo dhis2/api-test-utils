@@ -1,5 +1,11 @@
 package org.hisp.dhis.utils;
 
+import com.github.javafaker.Faker;
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.Point;
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -7,13 +13,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import org.apache.commons.lang3.RandomStringUtils;
-
-import com.github.javafaker.Faker;
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.Point;
 
 /**
  * Utility methods for random data generation
@@ -23,9 +22,21 @@ import com.vividsolutions.jts.geom.Point;
  */
 public class DataRandomizer
 {
+    private static Faker faker;
+
+    public static Faker faker()
+    {
+        if ( faker == null )
+        {
+            faker = new Faker();
+        }
+
+        return faker;
+    }
+
     /**
      * Generates a { Point } based on randomized coordinates
-     * 
+     *
      * @return a { Point}
      */
     public static Point randomPoint()
@@ -39,7 +50,7 @@ public class DataRandomizer
 
     /**
      * Returns random string containing 6 alphabetical characters.
-     * 
+     *
      * @return a String
      */
     public static String randomString()
@@ -49,7 +60,7 @@ public class DataRandomizer
 
     /**
      * Returns random string of alphabetical characters.
-     * 
+     *
      * @param size the size of the string
      * @return a String
      */
@@ -61,7 +72,7 @@ public class DataRandomizer
     /**
      * Returns random entity name containing static string joined with 6 random
      * alphabetical characters
-     * 
+     *
      * @return a random name
      */
     public static String randomEntityName()
@@ -71,9 +82,9 @@ public class DataRandomizer
 
     /**
      * Generates a random sequence of integers
-     * 
+     *
      * @param collectionSize max size of collection
-     * @param max max value of each integer
+     * @param max            max value of each integer
      * @return a List of Integer
      */
     public static List<Integer> randomSequence( int collectionSize, int max )
@@ -101,44 +112,44 @@ public class DataRandomizer
 
     /**
      * Generates a random integer
-     * 
+     *
      * @param min the minimum boundary for the generated int
      * @param max the maximum boundary for the generated int
      * @return a random int
      */
     public static int randomIntInRange( int min, int max )
     {
-        return Faker.instance().number().numberBetween( min, max );
+        return faker().instance().number().numberBetween( min, max );
     }
 
     /**
      * Generates a random integer
      *
      * @param decimals maximum number of places
-     * @param min minimum value
-     * @param max maximum value
+     * @param min      minimum value
+     * @param max      maximum value
      * @return a double
      */
     public static double randomDoubleInRange( int min, int max, int decimals )
     {
-        return Faker.instance().number().randomDouble( decimals, min, max );
+        return faker().number().randomDouble( decimals, min, max );
     }
 
     /**
      * Generates a random integer value
-     * 
+     *
      * @return a int
      */
     public static int randomInt()
     {
-        return Math.toIntExact( Faker.instance().number().randomNumber() );
+        return Math.toIntExact( faker().number().randomNumber() );
     }
 
     /**
      * Extracts a random element from a list
-     * 
+     *
      * @param list a List
-     * @param <T> type
+     * @param <T>  type
      * @return a random element from the list
      */
     public static <T> T randomElementFromList( List<T> list )
@@ -146,7 +157,7 @@ public class DataRandomizer
         Random rand = new Random();
         return list.get( rand.nextInt( list.size() ) );
     }
-    
+
     public static <T> List<T> randomElementsFromList( List<T> list, int elements )
     {
         Collections.shuffle( list );
@@ -159,12 +170,12 @@ public class DataRandomizer
 
     /**
      * Generates random boolean value
-     * 
+     *
      * @return a boolean
      */
     public static boolean randomBoolean()
     {
-        return Faker.instance().bool().bool();
+        return faker().bool().bool();
     }
 
     /**
@@ -174,12 +185,12 @@ public class DataRandomizer
      */
     public static Date randomFutureDate()
     {
-        return Faker.instance().date().future( 1825, TimeUnit.DAYS );
+        return faker().date().future( 1825, TimeUnit.DAYS );
     }
 
     /**
      * Generates a random date in the future. The date is maximum 5 years from now
-     * 
+     *
      * @param formatter a {DateTimeFormatter} for formatting the date
      * @return a Date formatted according to the specified {DateTimeFormatter}
      */
@@ -196,7 +207,7 @@ public class DataRandomizer
      */
     public static Date randomPastDate()
     {
-        return Faker.instance().date().past( 1825, TimeUnit.DAYS );
+        return faker().date().past( 1825, TimeUnit.DAYS );
     }
 
     /**
