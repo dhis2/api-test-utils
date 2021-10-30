@@ -6,7 +6,7 @@
   <name>api-test-utils</name>
   <groupId>org.hisp.dhis</groupId>
   <artifactId>api-test-utils</artifactId>
-  <version>1.1.6</version>
+  <version>1.1.7</version>
   <packaging>jar</packaging>
   <url>https://github.com/dhis2/api-test-utils</url>
   <description>API test utils</description>
