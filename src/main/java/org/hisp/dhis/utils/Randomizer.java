@@ -45,7 +45,7 @@ public interface Randomizer {
     <T> List<T> randomElementsFromList(List<T> list, int size);
 
     /**
-     * Returns random string containing 6 alphabetical characters.
+     * Returns random string.
      *
      * @return a String
      */
@@ -125,7 +125,15 @@ public interface Randomizer {
      *
      * @return a birthday date
      */
-    Date randomBirthday();
+    Date randomAdultBirthday();
+
+    /**
+     * Generates random birthday date with age
+     * between minAge and maxAge
+     *
+     * @return a birthday date
+     */
+    Date randomBirthday(int minAge, int maxAge);
 
     /**
      * Generates random long text

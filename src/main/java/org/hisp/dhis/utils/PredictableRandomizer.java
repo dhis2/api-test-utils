@@ -133,8 +133,13 @@ public class PredictableRandomizer implements Randomizer {
     }
 
     @Override
-    public Date randomBirthday() {
+    public Date randomAdultBirthday() {
         return this.faker.date().birthday( 18, 80 );
+    }
+
+    @Override
+    public Date randomBirthday(int minAge, int maxAge){
+        return this.faker.date().birthday( minAge, maxAge );
     }
 
     @Override
