@@ -49,7 +49,9 @@ public interface Randomizer {
      *
      * @return a String
      */
-    String randomString();
+    default String randomString(){
+        return randomString(randomInt(20));
+    }
 
     /**
      * Returns random string of alphabetical characters.
@@ -125,7 +127,9 @@ public interface Randomizer {
      *
      * @return a birthday date
      */
-    Date randomAdultBirthday();
+    default Date randomAdultBirthday(){
+        return randomBirthday(18, 80);
+    };
 
     /**
      * Generates random birthday date with age
@@ -141,7 +145,7 @@ public interface Randomizer {
      * @param wordCount number of words in the text
      * @return a long text
      */
-    String randomLongText(int wordCount );
+    String randomLongText( int wordCount );
 
     /**
      * Generates random phone number
