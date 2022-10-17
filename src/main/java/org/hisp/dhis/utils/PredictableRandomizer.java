@@ -47,8 +47,11 @@ public class PredictableRandomizer implements Randomizer {
 
     private final Faker faker;
 
+    private final long seed;
+
     public PredictableRandomizer( long seed )
     {
+        this.seed = seed;
         this.rnd = new Random( seed );
         this.faker = new Faker( rnd );
     }
@@ -77,12 +80,6 @@ public class PredictableRandomizer implements Randomizer {
         }
 
         return resultList;
-    }
-
-    @Override
-    public String randomString()
-    {
-        return this.faker.programmingLanguage().name();
     }
 
     public String randomString( int size )
@@ -130,11 +127,6 @@ public class PredictableRandomizer implements Randomizer {
     @Override
     public String randomNationalId() {
         return this.faker.idNumber().valid();
-    }
-
-    @Override
-    public Date randomAdultBirthday() {
-        return this.faker.date().birthday( 18, 80 );
     }
 
     @Override
@@ -190,5 +182,10 @@ public class PredictableRandomizer implements Randomizer {
     private LocalDate toLocalDate( Date dateToConvert )
     {
         return dateToConvert.toInstant().atZone( ZoneId.systemDefault() ).toLocalDate();
+    }
+
+    @Override
+    public String toString() {
+        return "PredictableRandomizer("+ this.seed +")";
     }
 }
